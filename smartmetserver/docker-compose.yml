@@ -10,6 +10,8 @@ services:
     volumes:
       - /smartmet/data/gfs/vietnam/surface/querydata/:/smartmet/data/gfs/surface
       - /smartmet/data/gfs/vietnam/pressure/querydata/:/smartmet/data/gfs/pressure
+      - /smartmet/data/gem/vietnam/surface/querydata/:/smartmet/data/gem/surface
+      - /smartmet/data/gem/vietnam/pressure/querydata/:/smartmet/data/gem/pressure
       - smartmetserver-storage-cnf:/etc/smartmet
     networks:
       - traefik-network
