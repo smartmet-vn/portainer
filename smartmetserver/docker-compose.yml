@@ -8,11 +8,14 @@ services:
       - "traefik.http.routers.smartmetserver.rule=Host(`data.vn.meteo.fi`)"
       - "traefik.http.services.smartmetserver.loadbalancer.server.port=8080"
     volumes:
-      - /smartmet/data/gfs/vietnam/surface/querydata/:/smartmet/data/gfs/surface
-      - /smartmet/data/gfs/vietnam/pressure/querydata/:/smartmet/data/gfs/pressure
-      - /smartmet/data/gem/vietnam/surface/querydata/:/smartmet/data/gem/surface
-      - /smartmet/data/gem/vietnam/pressure/querydata/:/smartmet/data/gem/pressure
-      - smartmetserver-storage-cnf:/etc/smartmet
+      #- /smartmet/data/gfs/vietnam/surface/querydata/:/smartmet/data/gfs/surface
+      #- /smartmet/data/gfs/vietnam/pressure/querydata/:/smartmet/data/gfs/pressure
+      #- /smartmet/data/gem/vietnam/surface/querydata/:/smartmet/data/gem/surface
+      #- /smartmet/data/gem/vietnam/pressure/querydata/:/smartmet/data/gem/pressure
+      - /smartmet/cnf/server:/etc/smartmet/conf
+      - /smartmet/data:/smartmet/data
+      - /smartmet/share:/smartmet/share
+      #- smartmetserver-storage-cnf:/etc/smartmet
     networks:
       - traefik-network
     restart: unless-stopped
