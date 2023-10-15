@@ -9,7 +9,7 @@ services:
       - "traefik.http.services.smartmetalert.loadbalancer.server.port=80"
     volumes:
       - /smartmet/www/:/var/www/html/
-      - /smartmet/editor/smartalert:/var/www/html/data
+      - /smartmet/editor/smartalert:/var/www/html/smartalert/data
     networks:
       - traefik-network
     restart: unless-stopped
