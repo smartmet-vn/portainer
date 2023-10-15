@@ -1,0 +1,19 @@
+version: '3'
+services:
+  smartmetalert:
+    image: php:7.2-apache
+    container_name: smartmetalert
+    labels:
+      - "traefik.http.routers.smartmetalert.entrypoints=websecure"
+      - "traefik.http.routers.smartmetalert.rule=Host(`alert.vn.meteo.fi`)"
+      - "traefik.http.services.smartmetalert.loadbalancer.server.port=80"
+    volumes:
+      - /smartmet/www/smartalert/:/var/www/html/
+      - /smartmet/editor/smartalert:/var/www/html/data
+    networks:
+      - traefik-network
+    restart: unless-stopped
+    
+networks:
+    traefik-network:
+      external: true
