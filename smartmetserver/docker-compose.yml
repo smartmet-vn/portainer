@@ -12,7 +12,7 @@ services:
       #- /smartmet/data/gfs/vietnam/pressure/querydata/:/smartmet/data/gfs/pressure
       #- /smartmet/data/gem/vietnam/surface/querydata/:/smartmet/data/gem/surface
       #- /smartmet/data/gem/vietnam/pressure/querydata/:/smartmet/data/gem/pressure
-      - /smartmet/cnf/server:/etc/smartmet/conf
+      - /smartmet/cnf/server:/etc/smartmet
       - /smartmet/data:/smartmet/data
       - /smartmet/share:/smartmet/share
       #- smartmetserver-storage-cnf:/etc/smartmet
