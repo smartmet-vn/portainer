@@ -9,7 +9,7 @@ services:
       - APPDOMAIN=apps.nchmf.gov.vn
     labels:
       - "traefik.http.routers.portainer.entrypoints=websecure"
-      - "traefik.http.routers.portainer.rule=Host(`portainer.apps.nchmf.gov.vn`)"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.vn.meteo.fi`)"
       - "traefik.http.services.portainer.loadbalancer.server.port=9000"
     volumes:
           # So that Portaomer can listen to the Docker events
