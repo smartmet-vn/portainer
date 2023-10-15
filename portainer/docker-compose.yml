@@ -1,0 +1,26 @@
+version: '3'
+services:
+  portainer:
+    image: portainer/portainer-ce
+    container_name: portainer
+    privileged: true
+    restart: always
+    environment:
+      - APPDOMAIN=apps.nchmf.gov.vn
+    labels:
+      - "traefik.http.routers.portainer.entrypoints=websecure"
+      - "traefik.http.routers.portainer.rule=Host(`portainer.apps.nchmf.gov.vn`)"
+      - "traefik.http.services.portainer.loadbalancer.server.port=9000"
+    volumes:
+          # So that Portaomer can listen to the Docker events
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer-storage:/data
+    networks:
+      - traefik-network
+
+volumes:
+  portainer-storage:
+
+networks:
+    traefik-network:
+      external: true
