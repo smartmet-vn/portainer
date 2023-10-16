@@ -4,7 +4,6 @@ services:
     image: smartmet-server
     container_name: smartmetserver
     labels:
-      - "traefik.docker.network=traefik-network"
       - "traefik.http.routers.smartmetserver.entrypoints=websecure"
       - "traefik.http.routers.smartmetserver.rule=Host(`data.nchmf.gov.vn`)"
       - "traefik.http.services.smartmetserver.loadbalancer.server.port=80"
