@@ -26,11 +26,11 @@ volumes:
   smartmetserver-storage-cnf:
 
 networks:
-  smartmet-server-network:
-    driver: bridge
-    ipam:
-     config:
-       - subnet: 10.5.0.0/16
+#  smartmet-server-network:
+#    driver: bridge
+#    ipam:
+#     config:
+#       - subnet: 10.5.0.0/16
   traefik-network:
     external: true
       
