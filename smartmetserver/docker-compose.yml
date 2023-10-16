@@ -6,7 +6,7 @@ services:
     labels:
       - "traefik.http.routers.smartmetserver.entrypoints=websecure"
       - "traefik.http.routers.smartmetserver.rule=Host(`data.vn.meteo.fi`)"
-      - "traefik.http.services.smartmetserver.loadbalancer.server.port=8080"
+      - "traefik.http.services.smartmetserver.loadbalancer.server.port=8090"
     volumes:
       #- /smartmet/data/gfs/vietnam/surface/querydata/:/smartmet/data/gfs/surface
       #- /smartmet/data/gfs/vietnam/pressure/querydata/:/smartmet/data/gfs/pressure
