@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  geoweb:
+    image: opengeoweb/geoweb
+    container_name: geoweb
+    restart: unless-stopped
+    labels:
+      - "traefik.http.routers.geoweb.entrypoints=websecure"
+      - "traefik.http.routers.geoweb.rule=Host(`geoweb.apps.nchmf.gov.vn`)"
+      - "traefik.http.services.geoweb.loadbalancer.server.port=8080"
+    networks:
+      - traefik-network
+    volumes:
+      - geoweb-storage:/usr/share/nginx/html/assets
+
+volumes:
+  geoweb-storage:
+  
+networks:
+    traefik-network:
+      external: true
