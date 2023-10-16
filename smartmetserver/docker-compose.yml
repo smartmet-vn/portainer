@@ -18,9 +18,9 @@ services:
       - /smartmet/share:/smartmet/share
       #- smartmetserver-storage-cnf:/etc/smartmet
     networks:
-      - traefik-network
-      - smartmet-server-network:
-          ipv4_address: 10.5.0.6
+      traefik-network
+      smartmet-server-network:
+        - ipv4_address: 10.5.0.6
     restart: unless-stopped
   smartmet-server-db:
     image: smartmet-server-db
