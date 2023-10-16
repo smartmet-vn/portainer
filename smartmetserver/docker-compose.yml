@@ -19,7 +19,7 @@ services:
       #- smartmetserver-storage-cnf:/etc/smartmet
     networks:
       - traefik-network
-      - smartmet-server-network
+      - server_smartmet-server-network
     restart: unless-stopped
 
 volumes:
