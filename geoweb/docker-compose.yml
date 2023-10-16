@@ -19,7 +19,7 @@ services:
     restart: unless-stopped
     labels:
       - "traefik.http.routers.geoweb-backend-cap.entrypoints=websecure"
-      - "traefik.http.routers.geoweb-backend-cap.rule=Host(`geoweb.apps.nchmf.gov.vn`) && PathPrefix(`/cap`)"
+      - "traefik.http.routers.geoweb-backend-cap.rule=Host(`geoweb-cap.apps.nchmf.gov.vn`)"
       - "traefik.http.services.geoweb-backend-cap.loadbalancer.server.port=8080"
     networks:
       - traefik-network
