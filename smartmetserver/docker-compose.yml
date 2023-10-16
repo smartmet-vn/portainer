@@ -7,7 +7,7 @@ services:
       - "traefik.docker.network=traefik-network"
       - "traefik.http.routers.smartmetserver.entrypoints=websecure"
       - "traefik.http.routers.smartmetserver.rule=Host(`data.vn.meteo.fi`)"
-      - "traefik.http.services.smartmetserver.loadbalancer.server.port=8090"
+      - "traefik.http.services.smartmetserver.loadbalancer.server.port=80"
     volumes:
       - /smartmet/cnf/server:/etc/smartmet/conf
       - /smartmet/data:/smartmet/data
