@@ -5,7 +5,7 @@ services:
     container_name: smartmetserver
     labels:
       - "traefik.http.routers.smartmetserver.entrypoints=websecure"
-      - "traefik.http.routers.smartmetserver.rule=Host(`data.apps.nchmf.gov.vn`)"
+      - "traefik.http.routers.smartmetserver.rule=Host(`data.apps.nchmf.gov.vn`) || Host(`smartalert.nchmf.gov.vn`)"
       - "traefik.http.services.smartmetserver.loadbalancer.server.port=80"
     volumes:
       - /smartmet/cnf/server:/etc/smartmet/conf
