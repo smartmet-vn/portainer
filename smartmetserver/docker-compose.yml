@@ -13,8 +13,6 @@ services:
       - /smartmet/data:/smartmet/data
       - /smartmet/share:/smartmet/share
     networks:
-      smartmet-server-network:
-        ipv4_address: 10.5.0.5
       traefik-network:
     restart: unless-stopped
   smartmet-server-db:
@@ -31,18 +29,12 @@ services:
     volumes:
       - /smartmet/data/db:/var/lib/postgresql/data
     networks:
-      smartmet-server-network:
-        ipv4_address: 10.5.0.6
+      traefik-network:
 
 volumes:
   smartmetserver-storage-cnf:
 
 networks:
-  smartmet-server-network:
-    driver: bridge
-    ipam:
-     config:
-       - subnet: 10.5.0.0/16
   traefik-network:
     external: true
       
