@@ -22,7 +22,7 @@ services:
     container_name: geoweb-backend-cap
     restart: unless-stopped
     environment:
-      - url_whitelist=["https://smartalert.nchmf.gov.vn/smartalert/capfeed.php"]
+      - url_whitelist=["http://smartalert.nchmf.gov.vn/smartalert/capfeed.php"]
     labels:
       - "traefik.http.routers.geoweb-backend-cap.entrypoints=websecure"
       - "traefik.http.routers.geoweb-backend-cap.rule=Host(`geoweb-cap.apps.nchmf.gov.vn`)"
