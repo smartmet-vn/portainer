@@ -13,7 +13,17 @@ services:
       - traefik-network
     volumes:
       - geoweb-storage:/usr/share/nginx/html/assets
-
+  geoweb-backend-cap:
+    image: registry.gitlab.com/opengeoweb/backend-services/cap-backend:main
+    container_name: geoweb-backend-cap
+    restart: unless-stopped
+    labels:
+      - "traefik.http.routers.geoweb-backend-cap.entrypoints=websecure"
+      - "traefik.http.routers.geoweb-backend-cap.rule=Host(`geoweb.apps.nchmf.gov.vn`) && PathPrefix(`/cap`)"
+      - "traefik.http.services.geoweb-backend-cap.loadbalancer.server.port=8080"
+    networks:
+      - traefik-network
+      
 volumes:
   geoweb-storage:
   
