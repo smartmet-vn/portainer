@@ -20,7 +20,7 @@ services:
     networks:
       traefik-network:
       smartmet-server-network:
-        ipv4_address: 10.5.0.6
+        ipv4_address: 10.5.0.5
     restart: unless-stopped
   smartmet-server-db:
     image: smartmet-server-db
