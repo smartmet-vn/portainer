@@ -4,6 +4,7 @@ services:
     image: smartmet-server
     container_name: smartmetserver
     labels:
+      - "traefik.docker.network=traefik-network"
       - "traefik.http.routers.smartmetserver.entrypoints=websecure"
       - "traefik.http.routers.smartmetserver.rule=Host(`data.vn.meteo.fi`)"
       - "traefik.http.services.smartmetserver.loadbalancer.server.port=8090"
