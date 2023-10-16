@@ -19,12 +19,18 @@ services:
       #- smartmetserver-storage-cnf:/etc/smartmet
     networks:
       - traefik-network
+      - smartmet-server-network
     restart: unless-stopped
 
 volumes:
   smartmetserver-storage-cnf:
 
 networks:
-    traefik-network:
-      external: true
+  smartmet-server-network:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+  traefik-network:
+    external: true
       
