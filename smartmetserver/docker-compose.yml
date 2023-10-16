@@ -13,6 +13,7 @@ services:
       #- /smartmet/data/gem/vietnam/surface/querydata/:/smartmet/data/gem/surface
       #- /smartmet/data/gem/vietnam/pressure/querydata/:/smartmet/data/gem/pressure
       - /smartmet/cnf/server:/etc/smartmet
+      - /smartmet/cnf/server:/etc/smartmet/conf
       - /smartmet/data:/smartmet/data
       - /smartmet/share:/smartmet/share
       #- smartmetserver-storage-cnf:/etc/smartmet
@@ -22,7 +23,8 @@ services:
 
 volumes:
   smartmetserver-storage-cnf:
-    
+
 networks:
     traefik-network:
       external: true
+      
