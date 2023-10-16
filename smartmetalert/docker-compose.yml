@@ -12,6 +12,8 @@ services:
       - /smartmet/editor/smartalert:/var/www/html/smartalert/data
     networks:
       - traefik-network
+          aliases: 
+            - smartalert.nchmf.gov.vn
     restart: unless-stopped
     
 networks:
