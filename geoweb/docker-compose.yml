@@ -5,6 +5,10 @@ services:
     image: opengeoweb/geoweb
     container_name: geoweb
     restart: unless-stopped
+    environment:
+      - GW_APP_URL=https://geoweb.apps.nchmf.gov.vn
+      - GW_CAP_BASE_URL=https://geoweb-cap.apps.nchmf.gov.vn
+      - GW_CAP_CONFIGURATION_FILENAME=capWarningPresets.json
     labels:
       - "traefik.http.routers.geoweb.entrypoints=websecure"
       - "traefik.http.routers.geoweb.rule=Host(`geoweb.apps.nchmf.gov.vn`)"
