@@ -19,18 +19,35 @@ services:
       #- smartmetserver-storage-cnf:/etc/smartmet
     networks:
       - traefik-network
-      - server_smartmet-server-network
+      - smartmet-server-network:
+          ipv4_address: 10.5.0.6
     restart: unless-stopped
+  smartmet-server-db:
+    image: smartmet-server-db
+    container_name: smartmet-server-db
+    logging:
+        driver: "json-file"
+        options:
+            max-file: "5"
+            max-size: "10m"
+    restart: always
+    ports:
+     - "5432:5432"
+    volumes:
+      - /smartmet/data/db:/var/lib/postgresql/data
+    networks:
+      smartmet-server-network:
+        ipv4_address: 10.5.0.6
 
 volumes:
   smartmetserver-storage-cnf:
 
 networks:
-#  smartmet-server-network:
-#    driver: bridge
-#    ipam:
-#     config:
-#       - subnet: 10.5.0.0/16
+  smartmet-server-network:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
   traefik-network:
     external: true
       
