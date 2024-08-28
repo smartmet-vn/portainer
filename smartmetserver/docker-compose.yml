@@ -13,6 +13,11 @@ services:
       - /smartmet/share:/smartmet/share
     networks:
       traefik-network:
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1024m"
+        max-file: "1"
     restart: unless-stopped
     ports:
      - "8080:80"
